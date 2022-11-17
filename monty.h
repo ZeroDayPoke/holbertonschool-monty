@@ -51,5 +51,7 @@ typedef struct instruction_s
  */
 int write_to_SO(char c);
 int write_to_SE(char c);
+void errHand(int eNum);
+void write_error(char *str);
 
 #endif
