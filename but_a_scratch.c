@@ -11,4 +11,6 @@ void errHand(int eNum)
 
 	if (eNum == 1)
 		write_error(errMsg1);
+	
+	exit(EXIT_FAILURE);
 }
