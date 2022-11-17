@@ -48,7 +48,6 @@ int main(int argc, char *argv[])
 	theGrail[i] = strdup(line);
 	printf("%s\n", theGrail[i]);
 	free(line);
-	line = malloc(100);
 	i++;
 	j = 0;
 	fclose(inboundFD);
