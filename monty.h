@@ -1,6 +1,9 @@
 #ifndef HOLY_GRAIL_H_
 #define HOLY_GRAIL_H_
 
+/* our one allowed global */
+extern char *theGrail;
+
 /*
  * libraries - to be included
  */
