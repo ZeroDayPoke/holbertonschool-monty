@@ -2,7 +2,7 @@
 #define HOLY_GRAIL_H_
 
 /* our one allowed global */
-extern char *theGrail;
+extern char **theGrail;
 
 /*
  * libraries - to be included
@@ -12,6 +12,7 @@ extern char *theGrail;
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
+#include <fcntl.h>
 
 /*
  * structs below
