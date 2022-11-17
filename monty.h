@@ -54,5 +54,8 @@ int write_to_SO(char c);
 int write_to_SE(char c);
 void errHand(int eNum);
 void write_error(char *str);
+void op_fun_res(char **theGrail, unsigned int lineCount);
+void push_monty_stack(stack_t **stack, unsigned int line_number);
+void pall_monty_stack(stack_t **stack, unsigned int line_number);
 
 #endif

@@ -48,8 +48,7 @@ int main(int argc, char *argv[])
 	theGrail[i] = strdup(line);
 	printf("%s\n", theGrail[i]);
 	free(line);
-	i++;
-	j = 0;
 	fclose(inboundFD);
+	op_fun_res(theGrail, lineTotes);
 	return (0);
 }

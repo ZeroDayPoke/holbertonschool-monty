@@ -1,6 +1,4 @@
-Test1g
-Test2
-Test3
-a
-b
-c
+push 1
+push 2
+push 3
+pall
