@@ -22,12 +22,11 @@ int main(int argc, char *argv[])
 	theGrail = malloc(sizeof(char *) * lineTotes);
 	fclose(inboundFD);
 	inboundFD = fopen(argv[1], "r");
-	while (c != -1)
+	while ((c = fgetc(inboundFD)) != EOF)
 	{
 		line = malloc(100);
 		for (chrCnt = 1, j = 0; c != '\n'; chrCnt++, j++)
 		{
-			c = fgetc(inboundFD);
 			line[j] = c;
 		}
 		theGrail[i] = strdup(line);
@@ -35,5 +34,6 @@ int main(int argc, char *argv[])
 		free(line);
 		i++;
 	}
+	fclose(inboundFD);
 	return (0);
 }
