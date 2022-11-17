@@ -43,7 +43,14 @@ int main(int argc, char *argv[])
 			j++;
 		}
 	}
+	j++;
+	line[j] = '\0';
+	theGrail[i] = strdup(line);
+	printf("%s\n", theGrail[i]);
 	free(line);
+	line = malloc(100);
+	i++;
+	j = 0;
 	fclose(inboundFD);
 	return (0);
 }
