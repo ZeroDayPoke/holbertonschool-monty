@@ -1,5 +1,5 @@
 #ifndef HOLY_GRAIL_H_
-#define HOLY_GRAIL_H
+#define HOLY_GRAIL_H_
 
 /*
  * libraries - to be included
@@ -46,5 +46,7 @@ typedef struct instruction_s
 /*
  * prototypes - function protos below
  */
+int write_to_SO(char c);
+int write_to_SE(char c);
 
 #endif
