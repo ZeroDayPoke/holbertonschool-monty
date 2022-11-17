@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
 	char c;
-	unsigned int lineTotes = 1, i = 0, j = 0, chrCnt = 1;
+	unsigned int lineTotes = 1, i = 0, j = 0;
 	FILE *inboundFD = NULL;
 	char **theGrail;
 	char *line;
@@ -22,18 +22,26 @@ int main(int argc, char *argv[])
 	theGrail = malloc(sizeof(char *) * lineTotes);
 	fclose(inboundFD);
 	inboundFD = fopen(argv[1], "r");
+	c = '0';
+	line = malloc(100);
 	while ((c = fgetc(inboundFD)) != EOF)
 	{
-		line = malloc(100);
-		for (chrCnt = 1, j = 0; c != '\n'; chrCnt++, j++)
+		if (c == '\n')
+		{
+			j++;
+			line[j] = '\0';
+			theGrail[i] = strdup(line);
+			i++;
+			j = 0;
+		}
+		else
 		{
 			line[j] = c;
+			j++;
 		}
-		theGrail[i] = strdup(line);
-		printf("%s\n", theGrail[i]);
-		free(line);
-		i++;
 	}
+	free(line);
 	fclose(inboundFD);
+	printf("%s", theGrail[2]);
 	return (0);
 }
