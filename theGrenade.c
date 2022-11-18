@@ -5,13 +5,13 @@ void op_fun_res(unsigned int lineCount)
 	stack_t *dasStack;
 	unsigned int i = 0, j, targetFound;
 	instruction_t betty[] = {{"pall", pall_monty_stack}, {"push", push_monty_stack}, {"pint", pint_monty_stack},
-	{"nop", nop_monty_stack}, {"pop", pop_monty_stack}, {"swap", swap_monty_stack}};
+	{"nop", nop_monty_stack}, {"pop", pop_monty_stack}, {"swap", swap_monty_stack}, {"add", add_monty_stack}};
 
 	dasStack = NULL;
 	for (i = 0; i < lineCount; i++)
 	{
 		targetFound = 0;
-		for (j = 0; j < 6; j++)
+		for (j = 0; j < 7; j++)
 		{
 			if (strncmp(betty[j].opcode, theGrail[i], 4) == 0)
 			{

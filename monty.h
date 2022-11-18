@@ -61,5 +61,6 @@ void pint_monty_stack(stack_t **stack, unsigned int line_number);
 void pop_monty_stack(stack_t **stack, unsigned int line_number);
 void swap_monty_stack(stack_t **stack, unsigned int line_number);
 void nop_monty_stack(stack_t **stack, unsigned int line_number);
+void add_monty_stack(stack_t **stack, unsigned int line_number);
 
 #endif

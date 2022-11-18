@@ -17,6 +17,7 @@ void errHand(int eNum, char *errArg, unsigned int lNum)
 	char *errMsg5 = ": can't pint, stack empty\n";
 	char *errMsg6 = ": can't pop an empty stack\n";
 	char *errMsg7 = ": can't swap, stack too short\n";
+	char *errMsg8 = ": can't add, stack too short\n";
 
 	sprintf(lNumStr, "%d", lNum);
 	if (eNum == 1)
@@ -58,6 +59,12 @@ void errHand(int eNum, char *errArg, unsigned int lNum)
 		write_error(errMsg3_1);
 		write_error(lNumStr);
 		write_error(errMsg7);
+	}
+	else if (eNum == 8)
+	{
+		write_error(errMsg3_1);
+		write_error(lNumStr);
+		write_error(errMsg8);
 	}
 	exit(EXIT_FAILURE);
 }
