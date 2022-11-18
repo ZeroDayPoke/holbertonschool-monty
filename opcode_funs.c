@@ -4,13 +4,13 @@ void op_fun_res(unsigned int lineCount)
 {
 	stack_t *dasStack;
 	unsigned int i = 0, j, targetFound;
-	instruction_t betty[] = {{"pall", pall_monty_stack}, {"push", push_monty_stack}};
+	instruction_t betty[] = {{"pall", pall_monty_stack}, {"push", push_monty_stack}, {"pint", pint_monty_stack}};
 
 	dasStack = NULL;
 	for (i = 0; i < lineCount; i++)
 	{
 		targetFound = 0;
-		for (j = 0; j < 2; j++)
+		for (j = 0; j < 3; j++)
 		{
 			if (strncmp(betty[j].opcode, theGrail[i], 4) == 0)
 			{
@@ -69,14 +69,13 @@ void pall_monty_stack(stack_t **stack, unsigned int line_number)
 
 void pint_monty_stack(stack_t **stack, unsigned int line_number)
 {
-	if (line number == -1)
+	if ((*stack) == NULL)
 	{
-		printf("L<%d>: can't pint, stack empty", line_number);
+		printf("L<%d>: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
-		printf("%d", line_number);
-		line_number += -1
+		printf("%d\n", (*stack)->n);
 	}
 }
