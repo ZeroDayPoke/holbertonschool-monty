@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 	line[j] = '\0';
 	theGrail[i] = strdup(line);
 	fclose(inboundFD);
+	free(line);
 	op_fun_res(lineTotes);
 	free(theGrail);
 	exit(EXIT_SUCCESS);
