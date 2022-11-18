@@ -11,7 +11,7 @@ void swap_monty_stack(stack_t **stack, unsigned int line_number)
 	stack_t *nodeHold1, *nodeHold2;
 
 	if (!((*stack)->next))
-		errHand(7, "NA", line_number);
+		errHand2(7, line_number);
 	nodeHold1 = (*stack);
 	nodeHold2 = (*stack)->next;
 	(*stack) = (*stack)->next;
@@ -33,7 +33,7 @@ void add_monty_stack(stack_t **stack, unsigned int line_number)
 	int n;
 
 	if (!((*stack)->next))
-		errHand(8, "NA", line_number);
+		errHand2(8, line_number);
 	nodeHold1 = (*stack);
 	n = (((*stack)->n) + ((*stack)->next->n));
 	nodeHold1->n = n;

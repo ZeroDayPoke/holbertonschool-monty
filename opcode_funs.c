@@ -64,7 +64,7 @@ void pint_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack) == NULL)
 	{
-		errHand(5, "NA", line_number);
+		errHand2(5, line_number);
 	}
 	else
 	{
@@ -97,7 +97,7 @@ void pop_monty_stack(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if (!(*stack))
 	{
-		errHand(6, "NA", line_number);
+		errHand2(6, line_number);
 	}
 	scrubber = *stack;
 	if (scrubber->next)
