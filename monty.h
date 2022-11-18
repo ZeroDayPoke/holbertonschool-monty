@@ -52,7 +52,7 @@ typedef struct instruction_s
  */
 int write_to_SO(char c);
 int write_to_SE(char c);
-void errHand(int eNum, char *errArg);
+void errHand(int eNum, char *errArg, unsigned int lNum);
 void write_error(char *str);
 void op_fun_res(unsigned int lineCount);
 void push_monty_stack(stack_t **stack, unsigned int line_number);
