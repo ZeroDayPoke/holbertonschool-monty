@@ -58,6 +58,7 @@ void op_fun_res(unsigned int lineCount);
 void push_monty_stack(stack_t **stack, unsigned int line_number);
 void pall_monty_stack(stack_t **stack, unsigned int line_number);
 void pint_monty_stack(stack_t **stack, unsigned int line_number);
+void pop_monty_stack(stack_t **stack, unsigned int line_number);
 void nop_monty_stack(stack_t **stack, unsigned int line_number);
 
 #endif

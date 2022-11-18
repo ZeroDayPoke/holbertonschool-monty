@@ -59,3 +59,17 @@ void nop_monty_stack(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 }
+
+void pop_monty_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *scrubber;
+
+	(void)line_number;
+	if (!(*stack))
+	{
+		exit(EXIT_FAILURE);
+	}
+	scrubber = *stack;
+	if (scrubber->next)
+		*stack = scrubber->next;
+}
