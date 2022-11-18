@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * push_monty_stack - pushes int to stack
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+ */
 void push_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newNode;
@@ -29,6 +35,12 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 	*stack = newNode;
 }
 
+/**
+ * pall_monty_stack - pushes int to stack
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+ */
 void pall_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodePtr;
@@ -42,6 +54,12 @@ void pall_monty_stack(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 }
 
+/**
+ * pint_monty_stack - pushes int to stack
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+ */
 void pint_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack) == NULL)
@@ -54,12 +72,24 @@ void pint_monty_stack(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * nop_monty_stack - pushes int to stack
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+ */
 void nop_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
 }
 
+/**
+ * pop_monty_stack - pushes int to stack
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+ */
 void pop_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *scrubber;

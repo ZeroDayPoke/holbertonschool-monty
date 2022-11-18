@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * swap_monty_stack - pushes int to stack
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+ */
 void swap_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold1, *nodeHold2;
@@ -15,6 +21,12 @@ void swap_monty_stack(stack_t **stack, unsigned int line_number)
 	nodeHold2->prev = NULL;
 }
 
+/**
+ * add_monty_stack - pushes int to stack
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+ */
 void add_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold1;

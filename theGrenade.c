@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * op_fun_res - do things
+ * @lineCount: the linecount
+ * Return: void
+ */
 void op_fun_res(unsigned int lineCount)
 {
 	stack_t *dasStack;

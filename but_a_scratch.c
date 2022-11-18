@@ -3,6 +3,8 @@
 /**
  * errHand - handles errors for monty
  * @eNum: error number
+ * @errArg: error arg
+ * @lnum: lnumber
  * Return: void
  */
 void errHand(int eNum, char *errArg, unsigned int lNum)
