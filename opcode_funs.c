@@ -28,31 +28,23 @@ void op_fun_res(unsigned int lineCount)
 void push_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newNode;
-	unsigned int j = 0;
+	unsigned int j = 1;
 	char *rawStr;
 	char numStr[12];
-	int n, i;
+	int n;
 
 	newNode = malloc(sizeof(stack_t));
 	rawStr = theGrail[line_number - 1];
 	rawStr += 4;
 	if (!((rawStr[0] >= '0' && rawStr[0] <= '9') || rawStr[0] == '-'))
 		errHand(4, "NA", line_number);
-	for (i = 0; rawStr[i]; i++)
+	numStr[0] = rawStr[0];
+	while (rawStr[j] >= '0' && rawStr[j] <= '9')
 	{
-		if ((rawStr[i] >= '0' && rawStr[i] <= '9') || rawStr[i] == '-')
-		{
-			numStr[j] = rawStr[j + i];
-			j++;
-			while (rawStr[i + j] >= '0' && rawStr[i + j] <= '9')
-			{
-				numStr[j] = rawStr[j + i];
-				j++;
-			}
-			break;
-		}
+		numStr[j] = rawStr[j];
+		j++;
 	}
-	numStr[j + 1] = '\0';
+	numStr[j] = '\0';
 	n = atoi(numStr);
 	newNode->n = n;
 	newNode->prev = NULL;
