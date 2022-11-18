@@ -1,8 +1,1 @@
-push 867
-push 5
-push 309
-pall
 pop
-pall
-pop
-pall

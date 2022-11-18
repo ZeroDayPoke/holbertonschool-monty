@@ -67,7 +67,7 @@ void pop_monty_stack(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if (!(*stack))
 	{
-		exit(EXIT_FAILURE);
+		errHand(6, "NA", line_number);
 	}
 	scrubber = *stack;
 	if (scrubber->next)
