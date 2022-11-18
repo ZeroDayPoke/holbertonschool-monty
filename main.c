@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
 			j++;
 			line[j] = '\0';
 			theGrail[i] = strdup(line);
-			printf("%s\n", theGrail[i]);
 			free(line);
 			line = malloc(100);
 			i++;
@@ -47,9 +46,8 @@ int main(int argc, char *argv[])
 	j++;
 	line[j] = '\0';
 	theGrail[i] = strdup(line);
-	printf("%s\n", theGrail[i]);
 	free(line);
 	fclose(inboundFD);
 	op_fun_res(lineTotes);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
