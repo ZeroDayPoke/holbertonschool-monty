@@ -2,18 +2,18 @@
 
 void op_fun_res(unsigned int lineCount)
 {
-	stack_t **dasStack;
+	stack_t *dasStack;
 	unsigned int i = 0, j;
 	instruction_t betty[] = {{"pall", pall_monty_stack}, {"push", push_monty_stack}};
 
-	dasStack = malloc(sizeof(stack_t **));
+	dasStack = NULL;
 	for (i = 0; i < lineCount; i++)
 	{
 		for (j = 0; j < 2; j++)
 		{
 			if (strncmp(betty[j].opcode, theGrail[i], 4) == 0)
 			{
-				betty[j].f(dasStack, (i + 1));
+				betty[j].f(&dasStack, (i + 1));
 			}
 		}
 	}
@@ -48,25 +48,20 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 	newNode->n = n;
 	newNode->prev = NULL;
 	newNode->next = *stack;
-	/* put at beginning of dll */
-	if (*stack)
-	{
+	if (*stack != NULL)
 		(*stack)->prev = newNode;
-	}
 	*stack = newNode;
 }
 
 void pall_monty_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *nodePtr = (*stack);
-	int i = 0;
+	stack_t *nodePtr;
 
-	if (!(stack) || !(line_number))
-		exit(EXIT_FAILURE);
-	while (nodePtr && i < 4)
+	nodePtr = (*stack);
+	while (nodePtr)
 	{
 		printf("%d\n", nodePtr->n);
 		nodePtr = nodePtr->next;
-		i++;
 	}
+	(void)line_number;
 }
