@@ -13,7 +13,7 @@ void errHand(int eNum, char *errArg, unsigned int lNum)
 	char *errMsg3_2 = ": unknown instruction ";
 	char *nLine = "\n";
 	char lNumStr[10];
-	char *errMsg4 = ": usage: push integer";
+	char *errMsg4 = ": usage: push integer\n";
 
 	sprintf(lNumStr, "%d", lNum);
 	if (eNum == 1)
