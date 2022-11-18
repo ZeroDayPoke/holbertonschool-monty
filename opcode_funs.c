@@ -18,7 +18,7 @@ void op_fun_res(unsigned int lineCount)
 				targetFound = 1;
 			}
 		}
-		if (theGrail[i][0] == '#')
+		if (theGrail[i][0] == '#' || theGrail[i][0] == '\0')
 			targetFound = 1;
 		if (targetFound == 0)
 			errHand(3, theGrail[i], (i + 1));
