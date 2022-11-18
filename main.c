@@ -47,6 +47,5 @@ int main(int argc, char *argv[])
 	fclose(inboundFD);
 	free(line);
 	op_fun_res(lineTotes);
-	free(theGrail);
 	exit(EXIT_SUCCESS);
 }
