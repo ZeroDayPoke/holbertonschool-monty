@@ -66,3 +66,17 @@ void pall_monty_stack(stack_t **stack, unsigned int line_number)
 	}
 	(void)line_number;
 }
+
+void pint_monty_stack(stack_t **stack, unsigned int line_number)
+{
+	if (line number == -1)
+	{
+		printf("L<%d>: can't pint, stack empty", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		printf("%d", line_number);
+		line_number += -1
+	}
+}
