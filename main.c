@@ -1,5 +1,7 @@
 #include "monty.h"
 
+char **theGrail = NULL;
+
 /**
  * main - Entry point for monty
  * Description: coming soon
@@ -10,7 +12,6 @@ int main(int argc, char *argv[])
 	char c;
 	unsigned int lineTotes = 1, i = 0, j = 0;
 	FILE *inboundFD = NULL;
-	char **theGrail;
 	char *line;
 
 	if (argc != 2)
@@ -49,6 +50,6 @@ int main(int argc, char *argv[])
 	printf("%s\n", theGrail[i]);
 	free(line);
 	fclose(inboundFD);
-	op_fun_res(theGrail, lineTotes);
+	op_fun_res(lineTotes);
 	return (0);
 }
