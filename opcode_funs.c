@@ -4,13 +4,14 @@ void op_fun_res(unsigned int lineCount)
 {
 	stack_t *dasStack;
 	unsigned int i = 0, j, targetFound;
-	instruction_t betty[] = {{"pall", pall_monty_stack}, {"push", push_monty_stack}, {"pint", pint_monty_stack}};
+	instruction_t betty[] = {{"pall", pall_monty_stack}, {"push", push_monty_stack}, {"pint", pint_monty_stack},
+	{"nop", nop_monty_stack}};
 
 	dasStack = NULL;
 	for (i = 0; i < lineCount; i++)
 	{
 		targetFound = 0;
-		for (j = 0; j < 3; j++)
+		for (j = 0; j < 4; j++)
 		{
 			if (strncmp(betty[j].opcode, theGrail[i], 4) == 0)
 			{
@@ -77,4 +78,10 @@ void pint_monty_stack(stack_t **stack, unsigned int line_number)
 	{
 		printf("%d\n", (*stack)->n);
 	}
+}
+
+void nop_monty_stack(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
