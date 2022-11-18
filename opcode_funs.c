@@ -37,8 +37,10 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 	rawStr = theGrail[line_number - 1];
 	for (i = 0; rawStr[i]; i++)
 	{
-		if (rawStr[i] >= '0' && rawStr[i] <= '9')
+		if ((rawStr[i] >= '0' && rawStr[i] <= '9') || rawStr[i] == '-')
 		{
+			numStr[j] = rawStr[j + i];
+			j++;
 			while (rawStr[i + j] >= '0' && rawStr[i + j] <= '9')
 			{
 				numStr[j] = rawStr[j + i];
