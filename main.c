@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 			i++;
 			j = 0;
 		}
-		else
+		else if (c != ' ' && c != '\t')
 		{
 			line[j] = c;
 			j++;
