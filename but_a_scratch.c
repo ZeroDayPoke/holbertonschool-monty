@@ -14,6 +14,7 @@ void errHand(int eNum, char *errArg, unsigned int lNum)
 	char *nLine = "\n";
 	char lNumStr[10];
 	char *errMsg4 = ": usage: push integer\n";
+	char *errMsg5 = ": can't pint, stack empty\n";
 
 	sprintf(lNumStr, "%d", lNum);
 	if (eNum == 1)
@@ -37,6 +38,12 @@ void errHand(int eNum, char *errArg, unsigned int lNum)
 		write_error(errMsg3_1);
 		write_error(lNumStr);
 		write_error(errMsg4);
+	}
+	else if (eNum == 5)
+	{
+		write_error(errMsg3_1);
+		write_error(lNumStr);
+		write_error(errMsg5);
 	}
 	exit(EXIT_FAILURE);
 }
