@@ -48,5 +48,5 @@ int main(int argc, char *argv[])
 	fclose(inboundFD);
 	free(line);
 	op_fun_res(lineTotes);
-	exit(EXIT_SUCCESS);
+	return (0);
 }
