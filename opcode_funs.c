@@ -18,6 +18,8 @@ void op_fun_res(unsigned int lineCount)
 				targetFound = 1;
 			}
 		}
+		if (theGrail[i][0] == '#')
+			targetFound = 1;
 		if (targetFound == 0)
 			errHand(3, theGrail[i], (i + 1));
 	}
@@ -27,12 +29,12 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newNode;
 	unsigned int j = 0;
-	char *rawStr, *numStr;
+	char *rawStr;
+	char numStr[12];
 	int n, i;
 
 	/* alloc mem for newNode and check for oopsy */
 	newNode = malloc(sizeof(stack_t));
-	numStr = malloc(12);
 	/* fill newNode struct members */
 	rawStr = theGrail[line_number - 1];
 	for (i = 0; rawStr[i]; i++)
