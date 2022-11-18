@@ -3,11 +3,11 @@
 void op_fun_res(unsigned int lineCount)
 {
 	stack_t **dasStack;
-	unsigned int i, j;
+	unsigned int i = 0, j;
 	instruction_t betty[] = {{"pall", pall_monty_stack}, {"push", push_monty_stack}};
 
-	dasStack = malloc(lineCount * sizeof(stack_t));
-	for (i = 0; theGrail[i]; i++)
+	dasStack = malloc(sizeof(stack_t **));
+	for (i = 0; i < lineCount; i++)
 	{
 		for (j = 0; j < 2; j++)
 		{
@@ -35,7 +35,12 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 	{
 		if (rawStr[i] >= '0' && rawStr[i] <= '9')
 		{
-			numStr[j] = rawStr[i];
+			while (rawStr[i + j] >= '0' && rawStr[i + j] <= '9')
+			{
+				numStr[j] = rawStr[j + i];
+				j++;
+			}
+			break;
 		}
 	}
 	numStr[j + 1] = '\0';
@@ -53,16 +58,15 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 
 void pall_monty_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *nodePtr;
+	stack_t *nodePtr = (*stack);
+	int i = 0;
 
 	if (!(stack) || !(line_number))
 		exit(EXIT_FAILURE);
-
-	/* prints node int, adds to node count, then targets next node */
-	nodePtr = *stack;
-	while (nodePtr)
+	while (nodePtr && i < 4)
 	{
 		printf("%d\n", nodePtr->n);
 		nodePtr = nodePtr->next;
+		i++;
 	}
 }

@@ -29,11 +29,8 @@ int main(int argc, char *argv[])
 	{
 		if (c == '\n')
 		{
-			j++;
 			line[j] = '\0';
 			theGrail[i] = strdup(line);
-			free(line);
-			line = malloc(100);
 			i++;
 			j = 0;
 		}
@@ -43,11 +40,10 @@ int main(int argc, char *argv[])
 			j++;
 		}
 	}
-	j++;
 	line[j] = '\0';
 	theGrail[i] = strdup(line);
-	free(line);
 	fclose(inboundFD);
 	op_fun_res(lineTotes);
+	free(theGrail);
 	exit(EXIT_SUCCESS);
 }
