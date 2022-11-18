@@ -13,6 +13,7 @@ void errHand(int eNum, char *errArg, unsigned int lNum)
 	char *errMsg3_2 = ": unknown instruction ";
 	char *nLine = "\n";
 	char lNumStr[10];
+	char *errMsg4 = ": usage: push integer";
 
 	sprintf(lNumStr, "%d", lNum);
 	if (eNum == 1)
@@ -30,6 +31,12 @@ void errHand(int eNum, char *errArg, unsigned int lNum)
 		write_error(errMsg3_2);
 		write_error(errArg);
 		write_error(nLine);
+	}
+	else if (eNum == 4)
+	{
+		write_error(errMsg3_1);
+		write_error(lNumStr);
+		write_error(errMsg4);
 	}
 	exit(EXIT_FAILURE);
 }

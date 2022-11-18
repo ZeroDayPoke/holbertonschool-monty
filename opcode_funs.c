@@ -33,10 +33,11 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 	char numStr[12];
 	int n, i;
 
-	/* alloc mem for newNode and check for oopsy */
 	newNode = malloc(sizeof(stack_t));
-	/* fill newNode struct members */
 	rawStr = theGrail[line_number - 1];
+	rawStr += 4;
+	if (!((rawStr[0] >= '0' && rawStr[0] <= '9') || rawStr[0] == '-'))
+		errHand(4, "NA", line_number);
 	for (i = 0; rawStr[i]; i++)
 	{
 		if ((rawStr[i] >= '0' && rawStr[i] <= '9') || rawStr[i] == '-')
