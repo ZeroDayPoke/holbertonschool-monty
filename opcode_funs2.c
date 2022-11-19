@@ -31,18 +31,15 @@ void swap_monty_stack(stack_t **stack, unsigned int line_number)
  */
 void add_monty_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *nodeHold1, *nodeHold2;
-	int n;
+	stack_t *nodeHold;
 
 	if (!((*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	nodeHold1 = (*stack);
-	nodeHold2 = (*stack)->next;
-	n = (((*stack)->n) + ((*stack)->next->n));
-	nodeHold1->n = n;
-	nodeHold1->next = (*stack)->next->next;
-	free(nodeHold2);
+	nodeHold = (*stack);
+	nodeHold->next->n = (((*stack)->n) + ((*stack)->next->n));
+	(*stack) = nodeHold->next;
+	free(nodeHold);
 }
