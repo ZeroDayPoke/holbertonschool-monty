@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	{
 		lineNum++;
 		pokeyTokey = strtok(line, delims);
-		if (pokeyTokey[0] == '\n' || pokeyTokey[0] == '#')
+		if (!pokeyTokey || pokeyTokey[0] == '#')
 			continue;
 		tokeyTwo = strtok(NULL, delims);
 		theGrail[0] = pokeyTokey;
