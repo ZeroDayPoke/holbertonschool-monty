@@ -9,6 +9,8 @@ void free_tiktok(stack_t **stack)
 {
 	stack_t *scrubber;
 
+	if (theGrail[1])
+		free(theGrail[1]);
 	if (theGrail)
 	{
 		free(theGrail[0]);
