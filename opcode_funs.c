@@ -99,11 +99,19 @@ void nop_monty_stack(stack_t **stack, unsigned int line_number)
  */
 void pop_monty_stack(stack_t **stack, unsigned int line_number)
 {
+	stack_t *nodeHold;
+
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	else
-		(*stack) = (*stack)->next;
+	{
+		nodeHold = (*stack)->next;
+		free((*stack)->next);
+		free((*stack)->prev);
+		free((*stack));
+		(*stack) = nodeHold;
+	}
 }
