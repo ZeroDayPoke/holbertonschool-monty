@@ -16,7 +16,7 @@ void free_tiktok(stack_t **stack)
 	}
 	if (*stack)
 	{
-	while (*stack)
+		while (*stack)
 		{
 			scrubber = (*stack)->next;
 			free(*stack);
