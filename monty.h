@@ -7,6 +7,7 @@ char **theGrail;
 /*
  * libraries - to be included
  */
+#include <ctype.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
