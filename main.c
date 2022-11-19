@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	FILE *inboundFD = NULL;
 	size_t n = 0;
 	char *line, *pokeyTokey, *tokeyTwo;
-	const char delims[] = " \t\n";
+	const char delims[] = " \t";
 
 	if (argc != 2)
 	{
