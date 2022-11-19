@@ -99,15 +99,11 @@ void nop_monty_stack(stack_t **stack, unsigned int line_number)
  */
 void pop_monty_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *scrubber;
-
-	(void)line_number;
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	scrubber = *stack;
-	if (scrubber->next)
-		*stack = scrubber->next;
+	else
+		(*stack) = (*stack)->next;
 }
