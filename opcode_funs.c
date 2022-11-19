@@ -34,16 +34,16 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 		free_tiktok(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (theGrail[1][1] == '-')
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(newNode);
-		free_tiktok(stack);
-		exit(EXIT_FAILURE);
-	}
 	numStr[0] = theGrail[1][0];
-	while (theGrail[1][j] >= '0' && theGrail[1][j] <= '9')
+	while (theGrail[1][j])
 	{
+		if (isdigit(theGrail[1][j]) == 0)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			free(newNode);
+			free_tiktok(stack);
+			exit(EXIT_FAILURE);
+		}
 		numStr[j] = theGrail[1][j];
 		j++;
 	}
