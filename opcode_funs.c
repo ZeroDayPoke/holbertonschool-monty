@@ -10,22 +10,19 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newNode;
 	unsigned int j = 1;
-	char *rawStr;
 	char numStr[12];
 	int n;
 
 	newNode = malloc(sizeof(stack_t));
-	rawStr = theGrail[line_number - 1];
-	rawStr += 4;
-	if (!((rawStr[0] >= '0' && rawStr[0] <= '9') || rawStr[0] == '-'))
+	if (!((theGrail[1][0] >= '0' && theGrail[1][0] <= '9') || theGrail[1][0] == '-'))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	numStr[0] = rawStr[0];
-	while (rawStr[j] >= '0' && rawStr[j] <= '9')
+	numStr[0] = theGrail[1][0];
+	while (theGrail[1][j] >= '0' && theGrail[1][j] <= '9')
 	{
-		numStr[j] = rawStr[j];
+		numStr[j] = theGrail[1][j];
 		j++;
 	}
 	numStr[j] = '\0';

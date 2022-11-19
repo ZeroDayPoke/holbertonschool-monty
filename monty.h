@@ -2,7 +2,7 @@
 #define HOLY_GRAIL_H_
 
 /* our one allowed global */
-extern char **theGrail;
+char **theGrail;
 
 /*
  * libraries - to be included
@@ -50,7 +50,7 @@ typedef struct instruction_s
 /*
  * prototypes - function protos below
  */
-void op_fun_res(unsigned int lineCount);
+void op_fun_res(unsigned int lineNum, char *tiktok, stack_t **dasStack);
 void push_monty_stack(stack_t **stack, unsigned int line_number);
 void pall_monty_stack(stack_t **stack, unsigned int line_number);
 void pint_monty_stack(stack_t **stack, unsigned int line_number);

@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char **theGrail = NULL;
+char **theGrail;
 
 /**
  * main - Entry point for monty
@@ -10,10 +10,12 @@ char **theGrail = NULL;
  */
 int main(int argc, char *argv[])
 {
-	char c;
-	unsigned int lineTotes = 1, i = 0, j = 0;
+	stack_t *dasStack;
+	unsigned int lineNum = 0;
 	FILE *inboundFD = NULL;
-	char *line;
+	size_t n = 0;
+	char *line, *pokeyTokey, *tokeyTwo;
+	const char delims[] = " \t";
 
 	if (argc != 2)
 	{
@@ -26,33 +28,17 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while ((c = fgetc(inboundFD)) != EOF)
-		if (c == '\n')
-			lineTotes++;
-	theGrail = malloc(sizeof(char *) * lineTotes);
-	fclose(inboundFD);
-	inboundFD = fopen(argv[1], "r");
-	c = '0';
-	line = malloc(100);
-	while ((c = fgetc(inboundFD)) != EOF)
+	dasStack = NULL;
+	theGrail = malloc(sizeof(char *) * 2);
+	while (getline(&line, &n, inboundFD) != -1)
 	{
-		if (c == '\n')
-		{
-			line[j] = '\0';
-			theGrail[i] = strdup(line);
-			i++;
-			j = 0;
-		}
-		else if (c != ' ' && c != '\t')
-		{
-			line[j] = c;
-			j++;
-		}
+		lineNum++;
+		pokeyTokey = strtok(line, delims);
+		tokeyTwo = strtok(NULL, delims);
+		theGrail[0] = pokeyTokey;
+		theGrail[1] = tokeyTwo;
+		op_fun_res(lineNum, pokeyTokey, &dasStack);
 	}
-	line[j] = '\0';
-	theGrail[i] = strdup(line);
 	fclose(inboundFD);
-	free(line);
-	op_fun_res(lineTotes);
 	return (0);
 }
