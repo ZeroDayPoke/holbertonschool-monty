@@ -96,8 +96,8 @@ void pint_monty_stack(stack_t **stack, unsigned int line_number)
  */
 void nop_monty_stack(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
-	(void)line_number;
+	(void) stack;
+	(void) line_number;
 }
 
 /**
