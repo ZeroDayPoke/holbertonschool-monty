@@ -24,5 +24,6 @@ void op_fun_res(unsigned int lineCount, char *tiktok, stack_t **dasStack)
 		}
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", lineCount, tiktok);
+	free_tiktok(dasStack);
 	exit(EXIT_FAILURE);
 }
