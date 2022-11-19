@@ -10,7 +10,7 @@ char **theGrail;
  */
 int main(int argc, char *argv[])
 {
-	stack_t *dasStack = NULL, *scrubber;
+	stack_t *dasStack = NULL;
 	unsigned int lineNum = 0;
 	FILE *inboundFD = NULL;
 	size_t n = 0;
@@ -36,18 +36,11 @@ int main(int argc, char *argv[])
 		if (!pokeyTokey || pokeyTokey[0] == '#')
 			continue;
 		tokeyTwo = strtok(NULL, delims);
+		theGrail[0] = pokeyTokey;
 		theGrail[1] = tokeyTwo;
 		op_fun_res(lineNum, pokeyTokey, &dasStack);
 	}
+	free_tiktok(&dasStack);
 	fclose(inboundFD);
-	free(pokeyTokey);
-	free(theGrail[1]);
-	free(theGrail);
-	while (dasStack)
-	{
-		scrubber = dasStack->next;
-		free(dasStack);
-		dasStack = scrubber;
-	}
 	return (0);
 }
