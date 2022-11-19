@@ -29,6 +29,9 @@ void op_fun_res(unsigned int lineCount)
 		if (theGrail[i][0] == '#' || theGrail[i][0] == '\0')
 			targetFound = 1;
 		if (targetFound == 0)
-			errHand(3, theGrail[i], (i + 1));
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", (i + 1), theGrail[i]);
+			exit(EXIT_FAILURE);
+		}
 	}
 }

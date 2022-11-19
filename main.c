@@ -16,10 +16,16 @@ int main(int argc, char *argv[])
 	char *line;
 
 	if (argc != 2)
-		errHand(1, "NA", 0);
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 	inboundFD = fopen(argv[1], "r");
 	if (!(inboundFD))
-		errHand(2, argv[1], 0);
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while ((c = fgetc(inboundFD)) != EOF)
 		if (c == '\n')
 			lineTotes++;

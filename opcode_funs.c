@@ -18,7 +18,10 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 	rawStr = theGrail[line_number - 1];
 	rawStr += 4;
 	if (!((rawStr[0] >= '0' && rawStr[0] <= '9') || rawStr[0] == '-'))
-		errHand(4, "NA", line_number);
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	numStr[0] = rawStr[0];
 	while (rawStr[j] >= '0' && rawStr[j] <= '9')
 	{
@@ -64,7 +67,8 @@ void pint_monty_stack(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack) == NULL)
 	{
-		errHand2(5, line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
@@ -97,7 +101,8 @@ void pop_monty_stack(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if (!(*stack))
 	{
-		errHand2(6, line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	scrubber = *stack;
 	if (scrubber->next)
