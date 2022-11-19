@@ -7,24 +7,20 @@
  */
 void op_fun_res(unsigned int lineCount, char *tiktok, stack_t **dasStack)
 {
-	unsigned int j, targetFound;
+	unsigned int j;
 	instruction_t betty[] = {{"pall", pall_monty_stack},
 	{"push", push_monty_stack}, {"pint", pint_monty_stack},
 	{"nop", nop_monty_stack}, {"pop", pop_monty_stack},
 	{"swap", swap_monty_stack}, {"add", add_monty_stack}};
 
-	targetFound = 0;
 	for (j = 0; j < 7; j++)
 	{
 		if (strcmp(betty[j].opcode, tiktok) == 0)
 		{
 			betty[j].f(dasStack, lineCount);
-			targetFound = 1;
+			return;
 		}
 	}
-	if (targetFound == 0)
-	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", lineCount, tiktok);
-		exit(EXIT_FAILURE);
-	}
+	fprintf(stderr, "L%d: unknown instruction %s\n", lineCount, tiktok);
+	exit(EXIT_FAILURE);
 }

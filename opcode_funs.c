@@ -14,7 +14,8 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 	int n;
 
 	newNode = malloc(sizeof(stack_t));
-	if (!((theGrail[1][0] >= '0' && theGrail[1][0] <= '9') || theGrail[1][0] == '-'))
+	if (!((theGrail[1][0] >= '0' && theGrail[1][0] <= '9')
+	|| theGrail[1][0] == '-'))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
