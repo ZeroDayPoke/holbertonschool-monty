@@ -20,17 +20,10 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	newNode = malloc(sizeof(stack_t));
-	if (!newNode)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free_tiktok(stack);
-		exit(EXIT_FAILURE);
-	}
 	if (!((theGrail[1][0] >= '0' && theGrail[1][0] <= '9')
 	|| theGrail[1][0] == '-'))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(newNode);
 		free_tiktok(stack);
 		exit(EXIT_FAILURE);
 	}
