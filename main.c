@@ -42,5 +42,6 @@ int main(int argc, char *argv[])
 		op_fun_res(lineNum, pokeyTokey, &dasStack);
 	}
 	fclose(inboundFD);
+	free(theGrail);
 	return (0);
 }
