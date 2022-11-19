@@ -42,6 +42,8 @@ int main(int argc, char *argv[])
 		op_fun_res(lineNum, pokeyTokey, &dasStack);
 	}
 	fclose(inboundFD);
+	free(theGrail[0]);
+	free(theGrail[1]);
 	free(theGrail);
 	while (dasStack)
 	{
