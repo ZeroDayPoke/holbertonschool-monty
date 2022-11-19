@@ -8,20 +8,19 @@
  */
 void swap_monty_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *nodeHold1, *nodeHold2;
+	stack_t *nodeHold;
 
 	if (!((*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	nodeHold1 = (*stack);
-	nodeHold2 = (*stack)->next;
-	(*stack) = (*stack)->next;
-	nodeHold1->next = nodeHold2->next;
-	nodeHold1->prev = nodeHold2;
-	nodeHold2->next = nodeHold1;
-	nodeHold2->prev = NULL;
+	nodeHold = (*stack)->next;
+	(*stack)->next = nodeHold->next;
+	(*stack)->prev = nodeHold;
+	nodeHold->next = (*stack);
+	nodeHold->prev = NULL;
+	(*stack) = nodeHold;
 }
 
 /**
