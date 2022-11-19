@@ -11,6 +11,7 @@ void free_tiktok(stack_t **stack)
 
 	if (theGrail)
 	{
+		free(theGrail[1]);
 		free(theGrail[0]);
 		free(theGrail);
 	}
