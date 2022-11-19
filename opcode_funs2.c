@@ -31,7 +31,7 @@ void swap_monty_stack(stack_t **stack, unsigned int line_number)
  */
 void add_monty_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *nodeHold1;
+	stack_t *nodeHold1, *nodeHold2;
 	int n;
 
 	if (!((*stack)->next))
@@ -40,9 +40,9 @@ void add_monty_stack(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	nodeHold1 = (*stack);
+	nodeHold2 = (*stack)->next;
 	n = (((*stack)->n) + ((*stack)->next->n));
 	nodeHold1->n = n;
-	nodeHold1->prev = NULL;
 	nodeHold1->next = (*stack)->next->next;
-	*stack = nodeHold1;
+	free(nodeHold2);
 }
