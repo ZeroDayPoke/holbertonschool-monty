@@ -13,11 +13,13 @@ void swap_monty_stack(stack_t **stack, unsigned int line_number)
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free_tiktok(stack);
 		exit(EXIT_FAILURE);
 	}
 	if (!(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free_tiktok(stack);
 		exit(EXIT_FAILURE);
 	}
 	nodeHold = (*stack)->next;
