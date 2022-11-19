@@ -15,7 +15,10 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
 
 	newNode = malloc(sizeof(stack_t));
 	if (!newNode)
-		fprintf(stderr, "Error: malloc failed");
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	if (!((theGrail[1][0] >= '0' && theGrail[1][0] <= '9')
 	|| theGrail[1][0] == '-'))
 	{
