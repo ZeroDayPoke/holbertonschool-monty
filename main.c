@@ -10,7 +10,7 @@ char **theGrail;
  */
 int main(int argc, char *argv[])
 {
-	stack_t *dasStack, *scrubber;
+	stack_t *dasStack = NULL, *scrubber;
 	unsigned int lineNum = 0;
 	FILE *inboundFD = NULL;
 	size_t n = 0;
@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	dasStack = NULL;
 	theGrail = malloc(sizeof(char *) * 2);
 	while (getline(&line, &n, inboundFD) != -1)
 	{
@@ -37,12 +36,11 @@ int main(int argc, char *argv[])
 		if (!pokeyTokey || pokeyTokey[0] == '#')
 			continue;
 		tokeyTwo = strtok(NULL, delims);
-		theGrail[0] = pokeyTokey;
 		theGrail[1] = tokeyTwo;
 		op_fun_res(lineNum, pokeyTokey, &dasStack);
 	}
 	fclose(inboundFD);
-	free(theGrail[0]);
+	free(pokeyTokey);
 	free(theGrail[1]);
 	free(theGrail);
 	while (dasStack)

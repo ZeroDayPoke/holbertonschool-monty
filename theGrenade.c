@@ -3,6 +3,8 @@
 /**
  * op_fun_res - do things
  * @lineCount: the linecount
+ * @dasStack: the stack
+ * @tiktok: the com
  * Return: void
  */
 void op_fun_res(unsigned int lineCount, char *tiktok, stack_t **dasStack)
