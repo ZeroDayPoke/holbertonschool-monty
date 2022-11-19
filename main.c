@@ -10,7 +10,7 @@ char **theGrail;
  */
 int main(int argc, char *argv[])
 {
-	stack_t *dasStack;
+	stack_t *dasStack, *scrubber;
 	unsigned int lineNum = 0;
 	FILE *inboundFD = NULL;
 	size_t n = 0;
@@ -43,5 +43,11 @@ int main(int argc, char *argv[])
 	}
 	fclose(inboundFD);
 	free(theGrail);
+	while (dasStack)
+	{
+		scrubber = dasStack->next;
+		free(dasStack);
+		dasStack = scrubber;
+	}
 	return (0);
 }
