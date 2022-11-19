@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	theGrail = malloc(sizeof(char *) * 2);
+	if (!theGrail)
+		fprintf(stderr, "Error: malloc failed");
 	while (getline(&line, &n, inboundFD) != -1)
 	{
 		lineNum++;
