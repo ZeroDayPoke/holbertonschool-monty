@@ -66,7 +66,7 @@ void pall_monty_stack(stack_t **stack, unsigned int line_number)
 		printf("%d\n", nodePtr->n);
 		nodePtr = nodePtr->next;
 	}
-	(void)line_number;
+	(void) line_number;
 }
 
 /**
