@@ -118,8 +118,6 @@ void pop_monty_stack(stack_t **stack, unsigned int line_number)
 	else
 	{
 		nodeHold = (*stack)->next;
-		free((*stack)->next);
-		free((*stack)->prev);
 		free((*stack));
 		(*stack) = nodeHold;
 	}
