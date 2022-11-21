@@ -5,8 +5,8 @@ char **theGrail;
 /**
  * main - Entry point for monty
  * @argc: arg count
- * @argv: array of arg pointers
- * Return: Always 0 (Success)
+ * @argv: array of input arg strings
+ * Return: Always 0 on completion, otherwise 1 on exit fail
  */
 int main(int argc, char *argv[])
 {

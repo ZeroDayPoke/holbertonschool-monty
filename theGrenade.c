@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- * op_fun_res - do things
- * @lineCount: the linecount
- * @dasStack: the stack
- * @tiktok: the com
+ * op_fun_res - matches inbound opcode to supported
+ * @lineCount: line from inbound file where opcode appears
+ * @dasStack: head of DLL type stack
+ * @tiktok: opcode argument
  * Return: void
  */
 void op_fun_res(unsigned int lineCount, char *tiktok, stack_t **dasStack)

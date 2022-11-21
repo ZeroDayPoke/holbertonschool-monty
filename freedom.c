@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * free_tiktok - free
- * @stack: the stack
+ * free_tiktok - free DLL type stack and globals
+ * @stack: DLL type stack head
  * Return: void
  */
 void free_tiktok(stack_t **stack)
