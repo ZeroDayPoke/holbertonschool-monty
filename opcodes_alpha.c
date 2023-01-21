@@ -13,7 +13,7 @@ void push_monty(stack_t **stack, unsigned int line_number)
 	char numStr[12];
 	int n;
 
-	if (!(daedalus.op_arg[0]))
+	if (!(daedalus.op_arg))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(stack);
