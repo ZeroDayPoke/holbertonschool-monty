@@ -16,7 +16,9 @@ void push_monty(stack_t **stack, unsigned int line_number)
 	if (!(daedalus.op_arg))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free(daedalus.line_ref);
 		free_stack(stack);
+		fclose(daedalus.file_ref);
 		exit(EXIT_FAILURE);
 	}
 	newNode = malloc(sizeof(stack_t));

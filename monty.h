@@ -57,6 +57,8 @@ typedef struct global_s
 	char *op_arg;
 	unsigned int op_mode;
 	unsigned int op_line;
+	char *line_ref;
+	FILE *file_ref;
 } global_t;
 
 extern struct global_s daedalus;
