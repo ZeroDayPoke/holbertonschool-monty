@@ -55,3 +55,30 @@ void add_monty_stack(stack_t **stack, unsigned int line_number)
 	(*stack) = nodeHold->next;
 	free(nodeHold);
 }
+
+/**
+ * sub_monty_stack - subtracts top 2 nodes of stack
+ * @stack: DLL type stack
+ * @line_number: line number from inbound file
+ * Return: void
+ */
+void sub_monty_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmpNode;
+
+	if (!(*stack))
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (!((*stack)->next))
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	tmpNode = (*stack);
+	tmpNode->next->n -= tmpNode->n;
+	(*stack) = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(tmpNode);
+}
