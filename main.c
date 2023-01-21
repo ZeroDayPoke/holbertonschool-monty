@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	stack_t *stack_prime = NULL;
 	FILE *inbound_file = NULL;
 	size_t n = 0;
-	char *line_buff;
+	char *line_buff = NULL;
 	const char delims[] = " \t\n";
 
 	if (argc != 2)
@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 		daedalus.op_arg = strtok(NULL, delims);
 		op_fun_res(&stack_prime);
 	}
+	free(line_buff);
 	free_stack(&stack_prime);
 	fclose(inbound_file);
 	return (0);
