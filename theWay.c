@@ -28,7 +28,8 @@ void op_fun_res(stack_t **stack)
 			return;
 		}
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", daedalus.op_line, daedalus.op_code);
+	fprintf(stderr, "L%d: unknown instruction %s\n",
+	daedalus.op_line, daedalus.op_code);
 	free_stack(stack);
 	exit(EXIT_FAILURE);
 }

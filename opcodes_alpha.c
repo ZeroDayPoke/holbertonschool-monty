@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * push_monty_stack - pushes int to DLL stack
+ * push_monty - pushes int to DLL stack
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void
@@ -51,7 +51,7 @@ void push_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pall_monty_stack - prints DLL type stack to SO
+ * pall_monty - prints DLL type stack to SO
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void
@@ -70,7 +70,7 @@ void pall_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pint_monty_stack - prints top int of stack
+ * pint_monty - prints top int of stack
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void
@@ -89,7 +89,7 @@ void pint_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * nop_monty_stack - does nothing to stack
+ * nop_monty - does nothing to stack
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void
@@ -101,7 +101,7 @@ void nop_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop_monty_stack - removes top int node of stack
+ * pop_monty - removes top int node of stack
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void

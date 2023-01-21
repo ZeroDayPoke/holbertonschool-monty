@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * swap_monty_stack - swaps top two nodes of stack
+ * swap_monty - swaps top two nodes of stack
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void
@@ -31,7 +31,7 @@ void swap_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * add_monty_stack - adds top 2 nodes of stack
+ * add_monty - adds top 2 nodes of stack
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void
@@ -57,7 +57,7 @@ void add_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * sub_monty_stack - subtracts top 2 nodes of stack
+ * sub_monty - subtracts top 2 nodes of stack
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void
