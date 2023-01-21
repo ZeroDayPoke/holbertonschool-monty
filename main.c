@@ -1,20 +1,19 @@
 #include "monty.h"
 
-char **theGrail;
+struct global_s daedalus;
 
 /**
  * main - Entry point for monty
  * @argc: arg count
- * @argv: array of input arg strings
+ * @argv: array of input args
  * Return: Always 0 on completion, otherwise 1 on exit fail
  */
 int main(int argc, char *argv[])
 {
-	stack_t *dasStack = NULL;
-	unsigned int lineNum = 0;
-	FILE *inboundFD = NULL;
+	stack_t *stack_prime = NULL;
+	FILE *inbound_file = NULL;
 	size_t n = 0;
-	char *line, *pokeyTokey, *tokeyTwo;
+	char *line_buff;
 	const char delims[] = " \t\n";
 
 	if (argc != 2)
@@ -22,30 +21,23 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	inboundFD = fopen(argv[1], "r");
-	if (!(inboundFD))
+	inbound_file = fopen(argv[1], "r");
+	if (!(inbound_file))
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	theGrail = malloc(sizeof(char *) * 2);
-	if (!theGrail)
+	daedalus.op_line = 0;
+	while (getline(&line_buff, &n, inbound_file) != -1)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	while (getline(&line, &n, inboundFD) != -1)
-	{
-		lineNum++;
-		pokeyTokey = strtok(line, delims);
-		if (!pokeyTokey || pokeyTokey[0] == '#')
+		daedalus.op_line++;
+		daedalus.op_code = strtok(line_buff, delims);
+		if (!daedalus.op_code || daedalus.op_code[0] == '#')
 			continue;
-		tokeyTwo = strtok(NULL, delims);
-		theGrail[0] = pokeyTokey;
-		theGrail[1] = tokeyTwo;
-		op_fun_res(lineNum, pokeyTokey, &dasStack);
+		daedalus.op_arg = strtok(NULL, delims);
+		op_fun_res(&stack_prime);
 	}
-	free_tiktok(&dasStack);
-	fclose(inboundFD);
+	free_stack(&stack_prime);
+	fclose(inbound_file);
 	return (0);
 }

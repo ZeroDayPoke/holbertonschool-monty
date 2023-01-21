@@ -6,38 +6,38 @@
  * @line_number: line number from inbound file
  * Return: void
  */
-void push_monty_stack(stack_t **stack, unsigned int line_number)
+void push_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newNode;
 	unsigned int j = 1;
 	char numStr[12];
 	int n;
 
-	if (!(theGrail[1]))
+	if (!(daedalus.op_arg[0]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free_tiktok(stack);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	newNode = malloc(sizeof(stack_t));
-	if (!((theGrail[1][0] >= '0' && theGrail[1][0] <= '9')
-	|| theGrail[1][0] == '-'))
+	if (!((daedalus.op_arg[0] >= '0' && daedalus.op_arg[0] <= '9')
+	|| daedalus.op_arg[0] == '-'))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free_tiktok(stack);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	numStr[0] = theGrail[1][0];
-	while (theGrail[1][j])
+	numStr[0] = daedalus.op_arg[0];
+	while (daedalus.op_arg[j])
 	{
-		if (isdigit(theGrail[1][j]) == 0)
+		if (isdigit(daedalus.op_arg[j]) == 0)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			free(newNode);
-			free_tiktok(stack);
+			free_stack(stack);
 			exit(EXIT_FAILURE);
 		}
-		numStr[j] = theGrail[1][j];
+		numStr[j] = daedalus.op_arg[j];
 		j++;
 	}
 	numStr[j] = '\0';
@@ -56,7 +56,7 @@ void push_monty_stack(stack_t **stack, unsigned int line_number)
  * @line_number: line number from inbound file
  * Return: void
  */
-void pall_monty_stack(stack_t **stack, unsigned int line_number)
+void pall_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodePtr;
 
@@ -75,7 +75,7 @@ void pall_monty_stack(stack_t **stack, unsigned int line_number)
  * @line_number: line number from inbound file
  * Return: void
  */
-void pint_monty_stack(stack_t **stack, unsigned int line_number)
+void pint_monty(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack) == NULL)
 	{
@@ -94,7 +94,7 @@ void pint_monty_stack(stack_t **stack, unsigned int line_number)
  * @line_number: line number from inbound file
  * Return: void
  */
-void nop_monty_stack(stack_t **stack, unsigned int line_number)
+void nop_monty(stack_t **stack, unsigned int line_number)
 {
 	(void) stack;
 	(void) line_number;
@@ -106,7 +106,7 @@ void nop_monty_stack(stack_t **stack, unsigned int line_number)
  * @line_number: line number from inbound file
  * Return: void
  */
-void pop_monty_stack(stack_t **stack, unsigned int line_number)
+void pop_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold;
 

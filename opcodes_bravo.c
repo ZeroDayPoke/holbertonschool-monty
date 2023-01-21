@@ -6,20 +6,20 @@
  * @line_number: line number from inbound file
  * Return: void
  */
-void swap_monty_stack(stack_t **stack, unsigned int line_number)
+void swap_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold;
 
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		free_tiktok(stack);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	if (!(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		free_tiktok(stack);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	nodeHold = (*stack)->next;
@@ -36,7 +36,7 @@ void swap_monty_stack(stack_t **stack, unsigned int line_number)
  * @line_number: line number from inbound file
  * Return: void
  */
-void add_monty_stack(stack_t **stack, unsigned int line_number)
+void add_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold;
 
@@ -62,7 +62,7 @@ void add_monty_stack(stack_t **stack, unsigned int line_number)
  * @line_number: line number from inbound file
  * Return: void
  */
-void sub_monty_stack(stack_t **stack, unsigned int line_number)
+void sub_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmpNode;
 

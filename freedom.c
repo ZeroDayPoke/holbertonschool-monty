@@ -1,19 +1,14 @@
 #include "monty.h"
 
 /**
- * free_tiktok - free DLL type stack and globals
+ * free_stack - free DLL type stack
  * @stack: DLL type stack head
  * Return: void
  */
-void free_tiktok(stack_t **stack)
+void free_stack(stack_t **stack)
 {
 	stack_t *scrubber;
 
-	if (theGrail)
-	{
-		free(theGrail[0]);
-		free(theGrail);
-	}
 	if (*stack)
 	{
 		while (*stack)

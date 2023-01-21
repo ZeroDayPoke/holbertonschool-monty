@@ -1,9 +1,6 @@
 #ifndef HOLY_GRAIL_H_
 #define HOLY_GRAIL_H_
 
-/* our one allowed global */
-char **theGrail;
-
 /*
  * libraries - to be included
  */
@@ -15,9 +12,6 @@ char **theGrail;
 #include <stdarg.h>
 #include <fcntl.h>
 
-/*
- * structs below
- */
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -48,18 +42,37 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct global_s - global struct
+ * @op_code: the opcode
+ * @op_arg: associated argument if applicable
+ * @op_mode: operation mode
+ * @op_line: line of inbound file
+ * Description: The Way
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct global_s
+{
+	char *op_code;
+	char *op_arg;
+	unsigned int op_mode;
+	unsigned int op_line;
+} global_t;
+
+extern struct global_s daedalus;
+
 /*
  * prototypes - function protos below
  */
-void op_fun_res(unsigned int lineNum, char *tiktok, stack_t **dasStack);
-void push_monty_stack(stack_t **stack, unsigned int line_number);
-void pall_monty_stack(stack_t **stack, unsigned int line_number);
-void pint_monty_stack(stack_t **stack, unsigned int line_number);
-void pop_monty_stack(stack_t **stack, unsigned int line_number);
-void swap_monty_stack(stack_t **stack, unsigned int line_number);
-void nop_monty_stack(stack_t **stack, unsigned int line_number);
-void add_monty_stack(stack_t **stack, unsigned int line_number);
-void sub_monty_stack(stack_t **stack, unsigned int line_number);
-void free_tiktok(stack_t **stack);
+void op_fun_res(stack_t **stack);
+void push_monty(stack_t **stack, unsigned int line_number);
+void pall_monty(stack_t **stack, unsigned int line_number);
+void pint_monty(stack_t **stack, unsigned int line_number);
+void pop_monty(stack_t **stack, unsigned int line_number);
+void swap_monty(stack_t **stack, unsigned int line_number);
+void nop_monty(stack_t **stack, unsigned int line_number);
+void add_monty(stack_t **stack, unsigned int line_number);
+void sub_monty(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t **stack);
 
 #endif
