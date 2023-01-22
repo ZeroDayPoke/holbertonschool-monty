@@ -19,6 +19,7 @@ void op_fun_res(stack_t **stack)
 		{"sub", sub_monty},
 		{"div", div_monty},
 		{"mul", mul_monty},
+		{"mod", mod_monty},
 		{NULL, NULL}
 	};
 

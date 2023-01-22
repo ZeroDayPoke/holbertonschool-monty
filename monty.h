@@ -80,6 +80,9 @@ void sub_monty(stack_t **stack, unsigned int line_number);
 void div_monty(stack_t **stack, unsigned int line_number);
 void mul_monty(stack_t **stack, unsigned int line_number);
 
+/* defined in opcodes_charlie.c */
+void mod_monty(stack_t **stack, unsigned int line_number);
+
 /* defined in freedom.c */
 void free_stack(stack_t **stack);
 
