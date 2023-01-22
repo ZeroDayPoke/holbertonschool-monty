@@ -57,14 +57,22 @@ void pchar_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pstr_monty - PLACEHOLDER
+ * pstr_monty - prints nodes as str
  * @stack: DLL type stack
  * @line_number: line number from inbound file
  * Return: void
  */
 void pstr_monty(stack_t **stack, unsigned int line_number)
 {
-	(void) stack;
+	stack_t *tmpNode;
+
+	tmpNode = (*stack);
+	while (tmpNode && tmpNode->n > 0 && tmpNode->n < 128)
+	{
+		printf("%c", tmpNode->n);
+		tmpNode = tmpNode->next;
+	}
+	printf("\n");
 	(void) line_number;
 }
 
