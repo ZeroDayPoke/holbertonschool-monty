@@ -84,7 +84,22 @@ void pstr_monty(stack_t **stack, unsigned int line_number)
  */
 void rotl_monty(stack_t **stack, unsigned int line_number)
 {
-	(void) stack;
+	stack_t *tmpNode, *topNode, *botNode;
+
+	botNode = (*stack);
+	topNode = (*stack)->next;
+	tmpNode = (*stack);
+	if (!(tmpNode))
+		return;
+	if (!(tmpNode->next))
+		return;
+	while (tmpNode->next)
+		tmpNode = tmpNode->next;
+	tmpNode->next = botNode;
+	topNode->prev = NULL;
+	(*stack) = topNode;
+	botNode->prev = tmpNode;
+	botNode->next = NULL;
 	(void) line_number;
 }
 
