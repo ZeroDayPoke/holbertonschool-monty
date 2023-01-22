@@ -63,18 +63,24 @@ typedef struct global_s
 
 extern struct global_s daedalus;
 
-/*
- * prototypes - function protos below
- */
+/* defined in theWay.c */
 void op_fun_res(stack_t **stack);
+
+/* defined in opcodes_alpha.c */
 void push_monty(stack_t **stack, unsigned int line_number);
 void pall_monty(stack_t **stack, unsigned int line_number);
 void pint_monty(stack_t **stack, unsigned int line_number);
-void pop_monty(stack_t **stack, unsigned int line_number);
-void swap_monty(stack_t **stack, unsigned int line_number);
 void nop_monty(stack_t **stack, unsigned int line_number);
+void pop_monty(stack_t **stack, unsigned int line_number);
+
+/* defined in opcodes_bravo.c */
+void swap_monty(stack_t **stack, unsigned int line_number);
 void add_monty(stack_t **stack, unsigned int line_number);
 void sub_monty(stack_t **stack, unsigned int line_number);
+void div_monty(stack_t **stack, unsigned int line_number);
+void mul_monty(stack_t **stack, unsigned int line_number);
+
+/* defined in freedom.c */
 void free_stack(stack_t **stack);
 
 #endif
