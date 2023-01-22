@@ -86,13 +86,13 @@ void rotl_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmpNode, *topNode, *botNode;
 
+	if (!(*stack))
+		return;
+	if (!((*stack)->next))
+		return;
 	botNode = (*stack);
 	topNode = (*stack)->next;
 	tmpNode = (*stack);
-	if (!(tmpNode))
-		return;
-	if (!(tmpNode->next))
-		return;
 	while (tmpNode->next)
 		tmpNode = tmpNode->next;
 	tmpNode->next = botNode;
@@ -111,6 +111,21 @@ void rotl_monty(stack_t **stack, unsigned int line_number)
  */
 void rotr_monty(stack_t **stack, unsigned int line_number)
 {
-	(void) stack;
+	stack_t *tmpNode, *topNode, *botNode;
+
+	if (!(*stack))
+		return;
+	if (!((*stack)->next))
+		return;
+	topNode = (*stack);
+	while (topNode->next)
+		topNode = topNode->next;
+	botNode = topNode->prev;
+	tmpNode = (*stack);
+	tmpNode->prev = topNode;
+	(*stack) = topNode;
+	topNode->next = tmpNode;
+	topNode->prev = NULL;
+	botNode->next = NULL;
 	(void) line_number;
 }
