@@ -20,6 +20,10 @@ void op_fun_res(stack_t **stack)
 		{"div", div_monty},
 		{"mul", mul_monty},
 		{"mod", mod_monty},
+		{"pchar", pchar_monty},
+		{"pstr", pstr_monty},
+		{"rotl", rotl_monty},
+		{"rotr", rotr_monty},
 		{NULL, NULL}
 	};
 

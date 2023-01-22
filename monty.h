@@ -82,6 +82,10 @@ void mul_monty(stack_t **stack, unsigned int line_number);
 
 /* defined in opcodes_charlie.c */
 void mod_monty(stack_t **stack, unsigned int line_number);
+void pchar_monty(stack_t **stack, unsigned int line_number);
+void pstr_monty(stack_t **stack, unsigned int line_number);
+void rotl_monty(stack_t **stack, unsigned int line_number);
+void rotr_monty(stack_t **stack, unsigned int line_number);
 
 /* defined in freedom.c */
 void free_stack(stack_t **stack);
