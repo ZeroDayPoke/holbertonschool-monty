@@ -35,5 +35,5 @@ void free_stack(stack_t **stack, char *messg)
 	if (messg)
 		exit(EXIT_FAILURE);
 	else
-		exit(EXIT_SUCCESS);
+		return;
 }
