@@ -48,6 +48,8 @@ typedef struct instruction_s
  * @op_arg: associated argument if applicable
  * @op_mode: operation mode
  * @op_line: line of inbound file
+ * @line_ref: pointer to line
+ * @file_ref: pointer to FILE
  * Description: The Way
  * for stack, queues, LIFO, FIFO
  */

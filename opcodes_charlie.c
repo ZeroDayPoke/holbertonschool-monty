@@ -37,6 +37,7 @@ void pchar_monty(stack_t **stack, unsigned int line_number)
 	char pchar;
 	char *errMsg1 = ": can't pchar, stack empty\n";
 	char *errMsg2 = ": can't pchar, value out of range\n";
+
 	if (!(*stack))
 		free_stack(stack, errMsg1);
 	if ((*stack)->n < 0 || (*stack)->n > 127)

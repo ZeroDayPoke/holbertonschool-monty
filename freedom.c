@@ -20,7 +20,7 @@ void free_stack(stack_t **stack, char *messg)
 		else
 			fprintf(stderr, "L%d%s", daedalus.op_line, messg);
 	}
-	if(daedalus.line_ref)
+	if (daedalus.line_ref)
 		free(daedalus.line_ref);
 	fclose(daedalus.file_ref);
 	if (*stack)

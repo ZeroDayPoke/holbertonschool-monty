@@ -10,7 +10,7 @@ void swap_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold;
 	char *errMsg1 = ": can't swap, stack too short\n";
-	
+
 	if (!(*stack))
 		free_stack(stack, errMsg1);
 	if (!(*stack)->next)
