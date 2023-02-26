@@ -9,25 +9,19 @@
 void swap_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold;
-
+	char *errMsg1 = ": can't swap, stack too short\n";
+	
 	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		free_stack(stack);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if (!(*stack)->next)
-	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		free_stack(stack);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	nodeHold = (*stack)->next;
 	(*stack)->next = nodeHold->next;
 	(*stack)->prev = nodeHold;
 	nodeHold->next = (*stack);
 	nodeHold->prev = NULL;
 	(*stack) = nodeHold;
+	(void) line_number;
 }
 
 /**
@@ -39,21 +33,17 @@ void swap_monty(stack_t **stack, unsigned int line_number)
 void add_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold;
+	char *errMsg1 = ": can't add, stack too short\n";
 
 	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if (!((*stack)->next))
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	nodeHold = (*stack);
 	nodeHold->next->n = (((*stack)->n) + ((*stack)->next->n));
 	(*stack) = nodeHold->next;
 	free(nodeHold);
+	(void) line_number;
 }
 
 /**
@@ -65,22 +55,18 @@ void add_monty(stack_t **stack, unsigned int line_number)
 void sub_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmpNode;
+	char *errMsg1 = ": can't sub, stack too short\n";
 
 	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if (!((*stack)->next))
-	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	tmpNode = (*stack);
 	tmpNode->next->n -= tmpNode->n;
 	(*stack) = (*stack)->next;
 	(*stack)->prev = NULL;
 	free(tmpNode);
+	(void) line_number;
 }
 
 /**
@@ -92,27 +78,21 @@ void sub_monty(stack_t **stack, unsigned int line_number)
 void div_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmpNode;
+	char *errMsg1 = ": can't div, stack too short\n";
+	char *errMsg2 = ": division by zero\n";
 
 	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if (!((*stack)->next))
-	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if ((*stack)->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg2);
 	tmpNode = (*stack);
 	tmpNode->next->n /= tmpNode->n;
 	(*stack) = (*stack)->next;
 	(*stack)->prev = NULL;
 	free(tmpNode);
+	(void) line_number;
 }
 
 /**
@@ -124,20 +104,16 @@ void div_monty(stack_t **stack, unsigned int line_number)
 void mul_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmpNode;
+	char *errMsg1 = ":can't mul, stack too short\n";
 
 	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if (!((*stack)->next))
-	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	tmpNode = (*stack);
 	tmpNode->next->n *= tmpNode->n;
 	(*stack) = (*stack)->next;
 	(*stack)->prev = NULL;
 	free(tmpNode);
+	(void) line_number;
 }

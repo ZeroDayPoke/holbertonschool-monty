@@ -39,8 +39,6 @@ int main(int argc, char *argv[])
 		daedalus.op_arg = strtok(NULL, delims);
 		op_fun_res(&stack_prime);
 	}
-	free(line_buff);
-	free_stack(&stack_prime);
-	fclose(inbound_file);
+	free_stack(&stack_prime, "");
 	return (0);
 }

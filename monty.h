@@ -88,6 +88,6 @@ void rotl_monty(stack_t **stack, unsigned int line_number);
 void rotr_monty(stack_t **stack, unsigned int line_number);
 
 /* defined in freedom.c */
-void free_stack(stack_t **stack);
+void free_stack(stack_t **stack, char *messg);
 
 #endif

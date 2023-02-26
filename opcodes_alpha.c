@@ -12,36 +12,22 @@ void push_monty(stack_t **stack, unsigned int line_number)
 	unsigned int j = 1;
 	char numStr[12];
 	int n;
+	char *errMsg1 = ": usage: push integer\n";
 
 	if (!(daedalus.op_arg))
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(daedalus.line_ref);
-		free_stack(stack);
-		fclose(daedalus.file_ref);
-		exit(EXIT_FAILURE);
-	}
-	newNode = malloc(sizeof(stack_t));
+		free_stack(stack, errMsg1);
 	if (!((daedalus.op_arg[0] >= '0' && daedalus.op_arg[0] <= '9')
 	|| daedalus.op_arg[0] == '-'))
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free_stack(stack);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	numStr[0] = daedalus.op_arg[0];
 	while (daedalus.op_arg[j])
 	{
 		if (isdigit(daedalus.op_arg[j]) == 0)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			free(newNode);
-			free_stack(stack);
-			exit(EXIT_FAILURE);
-		}
+			free_stack(stack, errMsg1);
 		numStr[j] = daedalus.op_arg[j];
 		j++;
 	}
+	newNode = malloc(sizeof(stack_t));
 	numStr[j] = '\0';
 	n = atoi(numStr);
 	newNode->n = n;
@@ -50,6 +36,7 @@ void push_monty(stack_t **stack, unsigned int line_number)
 	if (*stack != NULL)
 		(*stack)->prev = newNode;
 	*stack = newNode;
+	(void) line_number;
 }
 
 /**
@@ -79,15 +66,15 @@ void pall_monty(stack_t **stack, unsigned int line_number)
  */
 void pint_monty(stack_t **stack, unsigned int line_number)
 {
+	char *errMsg1 = ": can't pint, stack empty\n";
+
 	if ((*stack) == NULL)
-	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	else
 	{
 		printf("%d\n", (*stack)->n);
 	}
+	(void) line_number;
 }
 
 /**
@@ -111,16 +98,15 @@ void nop_monty(stack_t **stack, unsigned int line_number)
 void pop_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nodeHold;
+	char *errMsg1 = ": can't pop an empty stack\n";
 
 	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	else
 	{
 		nodeHold = (*stack)->next;
 		free((*stack));
 		(*stack) = nodeHold;
 	}
+	(void) line_number;
 }

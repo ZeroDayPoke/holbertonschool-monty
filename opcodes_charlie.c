@@ -9,27 +9,21 @@
 void mod_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmpNode;
+	char *errMsg1 = ": can't mod, stack too short\n";
+	char *errMsg2 = ": division by zero\n";
 
 	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if (!((*stack)->next))
-	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if ((*stack)->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg2);
 	tmpNode = (*stack);
 	tmpNode->next->n %= tmpNode->n;
 	(*stack) = (*stack)->next;
 	(*stack)->prev = NULL;
 	free(tmpNode);
+	(void) line_number;
 }
 
 /**
@@ -41,19 +35,15 @@ void mod_monty(stack_t **stack, unsigned int line_number)
 void pchar_monty(stack_t **stack, unsigned int line_number)
 {
 	char pchar;
-
+	char *errMsg1 = ": can't pchar, stack empty\n";
+	char *errMsg2 = ": can't pchar, value out of range\n";
 	if (!(*stack))
-	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg1);
 	if ((*stack)->n < 0 || (*stack)->n > 127)
-	{
-		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		free_stack(stack, errMsg2);
 	pchar = (*stack)->n;
 	printf("%c\n", pchar);
+	(void) line_number;
 }
 
 /**

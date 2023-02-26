@@ -8,6 +8,7 @@
 void op_fun_res(stack_t **stack)
 {
 	unsigned int i;
+	char *errMsg1 = "!: unknown instruction ";
 	instruction_t betty[] = {
 		{"pall", pall_monty},
 		{"push", push_monty},
@@ -35,8 +36,5 @@ void op_fun_res(stack_t **stack)
 			return;
 		}
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n",
-	daedalus.op_line, daedalus.op_code);
-	free_stack(stack);
-	exit(EXIT_FAILURE);
+	free_stack(stack, errMsg1);
 }
