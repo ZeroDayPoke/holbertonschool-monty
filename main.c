@@ -1,7 +1,5 @@
 #include "monty.h"
 
-struct global_s daedalus;
-
 /**
  * main - Entry point for monty
  * @argc: arg count
