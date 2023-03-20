@@ -10,7 +10,6 @@ void push_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newNode;
 	unsigned int j = 1;
-	char numStr[12];
 	int n;
 	char *errMsg1 = ": usage: push integer\n";
 
@@ -19,17 +18,14 @@ void push_monty(stack_t **stack, unsigned int line_number)
 	if (!((daedalus.op_arg[0] >= '0' && daedalus.op_arg[0] <= '9')
 	|| daedalus.op_arg[0] == '-'))
 		free_stack(stack, errMsg1);
-	numStr[0] = daedalus.op_arg[0];
 	while (daedalus.op_arg[j])
 	{
 		if (isdigit(daedalus.op_arg[j]) == 0)
 			free_stack(stack, errMsg1);
-		numStr[j] = daedalus.op_arg[j];
 		j++;
 	}
 	newNode = malloc(sizeof(stack_t));
-	numStr[j] = '\0';
-	n = atoi(numStr);
+	n = atoi(daedalus.op_arg);
 	newNode->n = n;
 	newNode->prev = NULL;
 	newNode->next = *stack;
