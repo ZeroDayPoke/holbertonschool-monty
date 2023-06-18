@@ -21,3 +21,9 @@ To use the Monty bytecode interpreter, compile all the `.c` files in the reposit
 ```bash
 gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 ./monty bytecode.m
+```
+
+## Authors
+
+- **Lindsey Lancaster** - [linszay](https://github.com/linszay)
+- **Chris Stamper** - [ZeroDayPoke](https://github.com/ZeroDayPoke)
