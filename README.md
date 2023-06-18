@@ -39,10 +39,11 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 ```
 
 ## Environment
-Language: C
-OS: Ubuntu 14.04 LTS
-Compiler: gcc 4.8.4
-Style Guidelines: Betty style
+
+- Language: C
+- OS: Ubuntu 14.04 LTS
+- Compiler: gcc 4.8.4
+- Style Guidelines: Betty style
 
 ## Authors
 
