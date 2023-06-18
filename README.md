@@ -1,5 +1,12 @@
 # Holberton Monty Bytecode Interpreter
 
+- [Synopsis](#holberton-monty-bytecode-interpreter)
+- [How Does It Work?](#how-does-it-work)
+- [File & Function Descriptions](#file--function-descriptions)
+- [Installation, Compilation, Usage](#installation-compilation-usage)
+- [Environment](#environment)
+- [Authors](#authors)
+
 ## Synopsis
 
 This repository contains the source code for a Monty bytecode interpreter, a project developed as part of the Holberton School curriculum. The interpreter is written in C and is designed to execute Monty bytecode files.
